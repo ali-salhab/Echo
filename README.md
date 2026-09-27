@@ -420,7 +420,7 @@ pnpm typecheck
 ```bash
 pnpm lint
 ```
-
+cvcxz
 ---
 
 ## Project Goals
