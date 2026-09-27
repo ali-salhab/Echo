@@ -15,7 +15,9 @@
 
 ## 📖 Overview
 
-**Echo** is a full-stack Monorepo containing multiple Next.js applications and shared internal packages, organized using `pnpm` workspaces and powered by `Turborepo` for optimized caching and task execution.
+**Echo**  B2B SaaS Customer Communication Platform
+A full-stack multi-tenant SaaS platform that enables businesses to integrate customer communication and AI-powered support directly into their websites.
+Built with Next.js, TypeScript and a scalable monorepo architecture using Turborepo and pnpm.
 
 ### Applications & Packages
 
