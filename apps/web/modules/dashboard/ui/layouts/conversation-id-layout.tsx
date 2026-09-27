@@ -12,6 +12,7 @@ export const ConversationIdLayout = ({
 }) => {
   return (
     <ResizablePanelGroup className="h-full flex-1">
+      {/* create function  */}
       <ResizablePanel className="h-full" defaultSize={60}>
         <div className="flex h-full flex-1 flex-col"> {children}</div>
       </ResizablePanel>
