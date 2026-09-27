@@ -1,125 +1,40 @@
 <div align="center">
 
-# Echo Monorepo
+# Echo
 
-> High-performance Next.js workspace managed with Turborepo and pnpm.
+### B2B SaaS Customer Communication Platform
 
-[![pnpm](https://img.shields.io/badge/pnpm-9.x-F69220?style=flat-square&logo=pnpm&logoColor=white)](#)
-[![Turborepo](https://img.shields.io/badge/Turborepo-2.x-EF4444?style=flat-square&logo=turborepo&logoColor=white)](#)
+A full-stack, multi-tenant SaaS platform that enables businesses to integrate
+customer communication and AI-powered support directly into their websites.
+
+Built with **Next.js, TypeScript, Turborepo, and pnpm** using a scalable
+monorepo architecture.
+
 [![Next.js](https://img.shields.io/badge/Next.js-16.x-000000?style=flat-square&logo=nextdotjs&logoColor=white)](#)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white)](#)
+[![Turborepo](https://img.shields.io/badge/Turborepo-2.x-EF4444?style=flat-square&logo=turborepo&logoColor=white)](#)
+[![pnpm](https://img.shields.io/badge/pnpm-9.x-F69220?style=flat-square&logo=pnpm&logoColor=white)](#)
 
 </div>
 
 ---
 
-## 📖 Overview
+## About Echo
 
-**Echo**  B2B SaaS Customer Communication Platform
-A full-stack multi-tenant SaaS platform that enables businesses to integrate customer communication and AI-powered support directly into their websites.
-Built with Next.js, TypeScript and a scalable monorepo architecture using Turborepo and pnpm.
+**Echo** is a B2B SaaS customer communication platform designed for
+businesses that want to integrate modern customer support and AI-powered
+communication directly into their websites.
 
-### Applications & Packages
+The platform is built as a **multi-tenant system** and organized as a
+scalable monorepo containing the main SaaS application, an embeddable
+customer-facing widget, and shared internal packages.
 
-- **`apps/web`**: Main Next.js web application.
-- **`apps/widget`**: Secondary Next.js application / widget dashboard.
-- **`packages/ui`**: Shared UI component library.
-- **`packages/math`**: Shared mathematical utilities library.
-- **`packages/typescript-config`**: Centralized TypeScript configurations.
-- **`packages/eslint-config`**: Centralized ESLint configurations.
+## Key Features
 
----
-
-## 🏗️ Architecture
-
-```mermaid
-graph TD
-    subgraph Apps
-        A["apps/web"]
-        B["apps/widget"]
-    end
-
-    subgraph Internal Packages
-        C["@workspace/ui"]
-        D["@workspace/math"]
-        E["@workspace/typescript-config"]
-        F["@workspace/eslint-config"]
-    end
-
-    A --> C
-    A --> D
-    B --> C
-    A -.-> E
-    B -.-> E
-    C -.-> E
-    D -.-> E
-```
-
----
-
-## 📁 Project Structure
-
-```text
-.
-├── apps/
-│   ├── web/          # Main Next.js App Router application
-│   └── widget/       # Widget Next.js application
-├── packages/
-│   ├── eslint-config/      # Shared ESLint configs
-│   ├── math/               # Shared math utilities
-│   ├── typescript-config/  # Shared tsconfig bases
-│   └── ui/                 # Shared UI components
-├── pnpm-workspace.yaml
-├── turbo.json
-└── package.json
-```
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- **Node.js**: `>=20.0.0`
-- **pnpm**: `>=9.0.0`
-
-### Installation
-
-1. **Clone the repository**
-
-   ```bash
-   git clone <repository-url>
-   cd echo
-   ```
-
-2. **Install workspace dependencies**
-   ```bash
-   pnpm install
-   ```
-
----
-
-## 💡 Usage
-
-### Running Development Server
-
-To start all applications simultaneously with Turborepo caching:
-
-```bash
-pnpm dev
-```
-
-### Building for Production
-
-To build all apps and packages:
-
-```bash
-pnpm build
-```
-
-### Type Checking & Linting
-
-```bash
-pnpm typecheck
-pnpm lint
-```
+- Multi-tenant B2B SaaS architecture
+- Embeddable customer communication widget
+- AI-powered customer support
+- Organization-based workspace structure
+- Shared component system across applications
+- Modular monorepo architecture
+- Type-safe development with TypeScript
