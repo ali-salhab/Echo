@@ -13,7 +13,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ClerkProvider>
+        <ClerkProvider
+          appearance={{
+            variables: {
+              colorPrimary: "#365753",
+            },
+          }}
+        >
           <Toaster />
           <ConvexClientProvider>{children}</ConvexClientProvider>
         </ClerkProvider>
