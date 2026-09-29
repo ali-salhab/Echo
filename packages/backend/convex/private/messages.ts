@@ -34,6 +34,20 @@ export const enhanceresponse = action({
         code: "UNAUTHORIZED",
       })
     }
+
+    const subscriptions = await ctx.runQuery(
+      internal.system.subscriptions.getByOrganizationId,
+      {
+        organizationId: orgId,
+      }
+    )
+    if (subscriptions?.status !== "active") {
+      throw new ConvexError({
+        message: "No active subscription found for the organization",
+        status: 403,
+        code: "FORBIDDEN",
+      })
+    }
     const response = await generateText({
       model: google.chat("gemini-3.5-flash-lite"),
       messages: [

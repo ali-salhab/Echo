@@ -2,7 +2,7 @@ import { ConvexError, v } from "convex/values"
 import { mutation, query } from "../_generated/server"
 import { supportAgent } from "../system/ai/agents/supportAgents"
 import { saveMessage, type MessageDoc } from "@convex-dev/agent"
-import { components } from "../_generated/api"
+import { components, internal } from "../_generated/api"
 import { paginationOptsValidator } from "convex/server"
 // we have in the shemas converation table contain contactsessionid so the is one to many relation ship bwtween them
 export const getOne = query({
@@ -58,6 +58,9 @@ export const create = mutation({
         code: "UNAUTHORIZED",
       })
     }
+    await ctx.runMutation(internal.system.contactSession.refresh, {
+      contactSessionId: args.contactSessionId,
+    })
     const widgerSettings = await ctx.db
       .query("widgetSettings")
       .withIndex("by_organization_id", (q) => {
