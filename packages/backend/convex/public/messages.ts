@@ -56,7 +56,18 @@ export const create = action({
         code: "BAD_REQUEST",
       })
     }
-    const shouldTriggerAgent = conversation.status === "unresolved"
+    await ctx.runMutation(internal.system.contactSession.refresh, {
+      contactSessionId: args.contactSessionId,
+    })
+
+    const subscriptions = await ctx.runQuery(
+      internal.system.subscriptions.getByOrganizationId,
+      {
+        organizationId: conversation.organizationId,
+      }
+    )
+    const shouldTriggerAgent =
+      conversation.status === "unresolved" && subscriptions?.status === "active"
 
     // TODO IMPLEMENT SUBSCRIPTON CHECK
     // HERE WE WILL CALL THE AI AND RETURN WITH RESPONSE

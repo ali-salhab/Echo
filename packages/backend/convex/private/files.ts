@@ -14,6 +14,7 @@ import rag from "../system/ai/rag"
 import { ca } from "zod/locales"
 import type { Id } from "../_generated/dataModel"
 import { paginationOptsValidator } from "convex/server"
+import { internal } from "../_generated/api"
 // what is array buffer ??
 // when use upload the file in the browser the browser convert it to a list of bytes we store theme in arraybuffer opject and send theme to the server
 //
@@ -54,6 +55,19 @@ export const addFile = action({
         message: "User is not in organization",
         status: 401,
         code: "UNAUTHORIZED",
+      })
+    }
+    const subscriptions = await ctx.runQuery(
+      internal.system.subscriptions.getByOrganizationId,
+      {
+        organizationId: orgId,
+      }
+    )
+    if (subscriptions?.status !== "active") {
+      throw new ConvexError({
+        message: "No active subscription found for the organization",
+        status: 403,
+        code: "FORBIDDEN",
       })
     }
 
