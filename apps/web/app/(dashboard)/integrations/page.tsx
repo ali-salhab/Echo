@@ -1,7 +1,8 @@
+import IntegrationView from "@/modules/intergrations/ui/view/intergration-view"
 import React from "react"
 
 const Integrations = () => {
-  return <div>Integrations </div>
+  return <IntegrationView />
 }
 
 export default Integrations
