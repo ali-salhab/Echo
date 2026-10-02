@@ -1,4 +1,4 @@
-"use client "
+"use client"
 import { AvatarImage, Avatar } from "@workspace/ui/components/avatar"
 import { useMemo } from "react"
 import { cn } from "../lib/utils.js"
@@ -25,7 +25,7 @@ export const DicebearAvatar = ({
     if (imageUrl) return imageUrl
 
     return createAvatar(glass, {
-      seed: [seed.toLowerCase().trim()],
+      seed: seed.toLowerCase().trim(),
       size,
     }).toDataUri()
   }, [imageUrl, seed, size])
